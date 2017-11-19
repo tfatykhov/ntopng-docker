@@ -1,15 +1,14 @@
-FROM ubuntu:16.04
-MAINTAINER Serhii Moroz <frost.asm@gmail.com>
+FROM resin/rpi-raspbian:latest
+MAINTAINER Timur Fatykhov <tfatykhov@gmail.com>
 
-ENV LANG C.UTF-8
+RUN apt-get update
+RUN apt-get -y install wget
+RUN wget http://packages.ntop.org/apt/ntop.key
+RUN apt-key add ntop.key
+RUN echo "deb http://apt.ntop.org/jessie_pi armhf/" > /etc/apt/sources.list.d/ntop.list
+RUN echo "deb http://apt.ntop.org/jessie_pi all/" >> /etc/apt/sources.list.d/ntop.list
 RUN  \
-  apt-get update \
-  && apt-get install -y -q wget \
-  && cd /tmp \
-  && wget --quiet http://apt.ntop.org/16.04/all/apt-ntop.deb \
-  && apt-get install -y -q /tmp/apt-ntop.deb \
-  && apt-get update \
-  && apt-get install --no-install-recommends --no-install-suggests -y -q pfring nprobe ntopng ntopng-data \
+  apt-get install --no-install-recommends --no-install-suggests -y -q pfring nprobe ntopng ntopng-data \
   && apt-get clean \
   && rm -rf /tmp/* \
   && rm -rf /var/tmp/* \
