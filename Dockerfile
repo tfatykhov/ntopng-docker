@@ -8,7 +8,7 @@ RUN apt-key add ntop.key
 RUN echo "deb http://apt.ntop.org/stretch_pi armhf/" > /etc/apt/sources.list.d/ntop.list
 RUN echo "deb http://apt.ntop.org/stretch_pi all/" >> /etc/apt/sources.list.d/ntop.list
 RUN  \
-  apt-get install --no-install-recommends --no-install-suggests -y -q pfring nprobe ntopng ntopng-data \
+  apt-get install  nprobe ntopng ntopng-data \
   && apt-get clean \
   && rm -rf /tmp/* \
   && rm -rf /var/tmp/* \
