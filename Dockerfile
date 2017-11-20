@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian:stretch
+FROM resin/rpi-raspbian:latest
 MAINTAINER Timur Fatykhov <tfatykhov@gmail.com>
 USER root
 RUN apt-get update
