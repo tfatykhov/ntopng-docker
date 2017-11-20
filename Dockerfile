@@ -11,5 +11,5 @@ RUN  \
   apt-get update \
   && apt-get dist-upgrade \
   && apt-get upgrade
-  RUN apt-get install --no-install-recommends --no-install-suggests  --allow-change-held-packages --allow-remove-essential --allow-downgrades nprobe ntopng ntopng-data
+  RUN apt-get install nprobe ntopng ntopng-data libpcap0.8 libmysqlclient18
   RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
