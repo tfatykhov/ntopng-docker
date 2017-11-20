@@ -1,6 +1,6 @@
 FROM resin/rpi-raspbian:stretch
 MAINTAINER Timur Fatykhov <tfatykhov@gmail.com>
-
+USER root
 RUN apt-get update
 RUN apt-get -y install wget
 RUN wget http://packages.ntop.org/apt/ntop.key
